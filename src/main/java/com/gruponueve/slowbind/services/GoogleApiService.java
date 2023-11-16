@@ -15,7 +15,7 @@ public class GoogleApiService {
     private static final String PLACES_API_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 
     //private static final String API_KEY = "AIzaSyCEU1ntFknOSngfwaHYwT00STaUDpA_nEY";
-    private static final String API_KEY = "AIzaSyBOQobXa9WCVhofKJcsFGJd-H_zdSGxHca";
+    private static final String API_KEY = "AIzaSyDf9XiaCXOGa7r4Axe33T9hEsuIeLbbvOM";
 
     public InterestPointResponseDTO getMonumentInfo(double latitude, double longitude) throws IOException {
 
