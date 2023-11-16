@@ -1,5 +1,6 @@
 package com.gruponueve.slowbind.services;
 
+import com.gruponueve.slowbind.dtos.InterestPointResponseDTO;
 import com.gruponueve.slowbind.enums.Categoria;
 import com.gruponueve.slowbind.enums.Zona;
 import com.gruponueve.slowbind.models.InterestPoint;
@@ -7,10 +8,14 @@ import com.gruponueve.slowbind.repository.IInterestPointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
 public class InterestPointService implements InterfaceInterestPointService {
+
+    @Autowired
+    GoogleApiService googleApiService;
 
     @Autowired
     private IInterestPointRepository interestPointRepository;
@@ -85,5 +90,17 @@ public class InterestPointService implements InterfaceInterestPointService {
     public List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, Double rating) {
         return interestPointRepository.findByRatingGreaterThanEqualAndCategoriaAndZona(rating, categoria, zona);
     }
+
+
+    public InterestPointResponseDTO findWithGoogleDetails(Integer id) throws IOException {
+        InterestPoint newInterestPoint = getInterestPointById(id);
+
+        InterestPointResponseDTO InterestPointResponseDTO =
+                googleApiService.getMonumentInfo(newInterestPoint.getLatitud(), newInterestPoint.getLongitud());
+
+        return InterestPointResponseDTO;
+    }
+
+
 
 }
