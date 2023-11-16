@@ -7,10 +7,7 @@ import com.gruponueve.slowbind.services.InterestPointService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,18 +37,24 @@ public class InterestPointController {
         return interestPointService.getInterestPointByCategoria(categoria);
     }
 
-    @GetMapping("/interestpoints/rating/{rating}")
-    public List<InterestPoint> getInterestPointByRating(@PathVariable Double rating) {
-        return interestPointService.getInterestPointByRating(rating);
-    }
-
-    @GetMapping("/interestpoints/zona/{zona}")
-    public List<InterestPoint> getInterestPointByZona(@PathVariable Zona zona) {
-        return interestPointService.getInterestPointByZona(zona);
-    }
-
-    @GetMapping("/interestpoints/name/{name}")
-    public List<InterestPoint> getInterestPointByName(@PathVariable String name) {
-        return interestPointService.getInterestPointByName(name);
+    @PostMapping("/interestpoints/filters/")
+    public List<InterestPoint> getInterestPointByFilters(@ModelAttribute String categoria, @ModelAttribute String zona, @ModelAttribute String rating) {
+        if (!categoria.isBlank() && !zona.isBlank() && !rating.isBlank()){
+            return interestPointService.getInterestPointByCategoriaAndZonaAndRating(Categoria.valueOf(categoria), Zona.valueOf(zona), Double.valueOf(rating));
+        } else if (!categoria.isBlank() && !zona.isBlank()){
+            return interestPointService.getInterestPointByCategoriaAndZona(Categoria.valueOf(categoria), Zona.valueOf(zona));
+        } else if (!categoria.isBlank() && !rating.isBlank()){
+            return interestPointService.getInterestPointByCategoriaAndRating(Categoria.valueOf(categoria), Double.valueOf(rating));
+        } else if (!zona.isBlank() && !rating.isBlank()){
+            return interestPointService.getInterestPointByZonaAndRating(Zona.valueOf(zona), Double.valueOf(rating));
+        } else if (!categoria.isBlank()){
+            return interestPointService.getInterestPointByCategoria(Categoria.valueOf(categoria));
+        } else if (!zona.isBlank()){
+            return interestPointService.getInterestPointByZona(Zona.valueOf(zona));
+        } else if (!rating.isBlank()){
+            return interestPointService.getInterestPointByRating(Double.valueOf(rating));
+        } else {
+            return interestPointService.getInterestPoint();
+        }
     }
 }

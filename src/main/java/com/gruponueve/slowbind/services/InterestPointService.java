@@ -65,4 +65,25 @@ public class InterestPointService implements InterfaceInterestPointService {
     public List<InterestPoint> getInterestPointByName(String name) {
         return interestPointRepository.findByNameContains(name);
     }
+
+    @Override
+    public List<InterestPoint> getInterestPointByCategoriaAndZona(Categoria categoria, Zona zona) {
+        return interestPointRepository.findByCategoriaAndZona(categoria, zona);
+    }
+
+    @Override
+    public List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, Double rating) {
+        return interestPointRepository.findByRatingGreaterThanEqualAndCategoria(rating, categoria);
+    }
+
+    @Override
+    public List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, Double rating) {
+        return interestPointRepository.findByRatingGreaterThanEqualAndZona(rating, zona);
+    }
+
+    @Override
+    public List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, Double rating) {
+        return interestPointRepository.findByRatingGreaterThanEqualAndCategoriaAndZona(rating, categoria, zona);
+    }
+
 }
