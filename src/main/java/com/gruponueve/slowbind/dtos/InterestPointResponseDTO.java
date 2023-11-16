@@ -14,14 +14,14 @@ public class InterestPointResponseDTO {
     private String name;
     private String description;
     private Double rating;
-    private Zona zona;
+    private Zona zone;
     private String imageReference;
 
     private String address;
 
     public InterestPointResponseDTO (InterestPoint interestPoint, String description, String imageReference) {
         this.name= interestPoint.getName();
-        this.zona= interestPoint.getZona();
+        this.zone= interestPoint.getZone();
         this.rating= interestPoint.getRating();
         this.description=description;
         this.imageReference=imageReference;
