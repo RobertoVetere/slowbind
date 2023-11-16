@@ -48,4 +48,9 @@ public class InterestPointController {
     public List<InterestPoint> getInterestPointByZona(@ModelAttribute Zona zona) {
         return interestPointService.getInterestPointByZona(zona);
     }
+
+    @GetMapping("/interestpoints/name/{name}")
+    public List<InterestPoint> getInterestPointByName(@ModelAttribute String name) {
+        return interestPointService.getInterestPointByName(name);
+    }
 }
