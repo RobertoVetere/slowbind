@@ -56,9 +56,13 @@ public class InterestPointService implements InterfaceInterestPointService {
         return interestPointRepository.findByRatingGreaterThanEqual(rating);
     }
 
-
     @Override
     public List<InterestPoint> getInterestPointByZona(Zona zona) {
         return interestPointRepository.findByZona(zona);
+    }
+
+    @Override
+    public List<InterestPoint> getInterestPointByName(String name) {
+        return interestPointRepository.findByNameContains(name);
     }
 }
