@@ -27,5 +27,8 @@ public enum Zona {
     LA_VERNEDA_I_LA_PAU,
     LA_TRINITAT_VELLA,
     EL_BON_PASTOR,
+    CIUTAT_VELLA,
+    NAVAS,
+    CANYELLES,
     OTRO
 }

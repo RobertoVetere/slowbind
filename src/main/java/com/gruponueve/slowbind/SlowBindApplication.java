@@ -29,7 +29,7 @@ public class SlowBindApplication {
 			TypeReference<List<InterestPoint>> typeReference= new TypeReference<>() {
 			};
 			InputStream inputStream = TypeReference.class.getResourceAsStream("/rating.json");
-			InputStream inputStream2 = TypeReference.class.getResourceAsStream("/rating.json");
+			InputStream inputStream2 = TypeReference.class.getResourceAsStream("/stores.json");
 			try {
 				List<InterestPoint> interestPoints = mapper.readValue(inputStream,typeReference);
 				List<InterestPoint> interestPoints2 = mapper.readValue(inputStream2,typeReference);

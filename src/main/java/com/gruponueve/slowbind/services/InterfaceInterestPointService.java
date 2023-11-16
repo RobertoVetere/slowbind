@@ -22,7 +22,7 @@ public interface InterfaceInterestPointService {
 
     List<InterestPoint> getInterestPointByCategoria(Categoria categoria);
 
-    List<InterestPoint> getInterestPointByRating(Double rating);
+    List<InterestPoint> getInterestPointByRating(double rating);
 
     List<InterestPoint> getInterestPointByZona(Zona zona);
 
@@ -30,10 +30,10 @@ public interface InterfaceInterestPointService {
 
     List<InterestPoint> getInterestPointByCategoriaAndZona(Categoria categoria, Zona zona);
 
-    List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, Double rating);
+    List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, double rating);
 
-    List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, Double rating);
+    List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, double rating);
 
-    List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, Double rating);
+    List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, double rating);
 
 }

@@ -57,7 +57,7 @@ public class InterestPointService implements InterfaceInterestPointService {
 
 
     @Override
-    public List<InterestPoint> getInterestPointByRating(Double rating) {
+    public List<InterestPoint> getInterestPointByRating(double rating) {
         return interestPointRepository.findByRatingGreaterThanEqual(rating);
     }
 
@@ -77,17 +77,17 @@ public class InterestPointService implements InterfaceInterestPointService {
     }
 
     @Override
-    public List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, Double rating) {
+    public List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, double rating) {
         return interestPointRepository.findByRatingGreaterThanEqualAndCategoria(rating, categoria);
     }
 
     @Override
-    public List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, Double rating) {
+    public List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, double rating) {
         return interestPointRepository.findByRatingGreaterThanEqualAndZona(rating, zona);
     }
 
     @Override
-    public List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, Double rating) {
+    public List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, double rating) {
         return interestPointRepository.findByRatingGreaterThanEqualAndCategoriaAndZona(rating, categoria, zona);
     }
 
