@@ -22,6 +22,7 @@ public class SlowBindApplication {
 		SpringApplication.run(SlowBindApplication.class, args);
 	}
 
+
 	@Bean
 	CommandLineRunner runner(InterestPointService interestPointService) {
 		return args -> {
@@ -40,8 +41,13 @@ public class SlowBindApplication {
 			} catch (IOException e){
 				System.out.println("Unable to save interest points: " + e.getMessage());
 			}
+
+
 		};
 
+
 }
+
+
 
 }

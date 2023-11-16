@@ -37,6 +37,7 @@ public class InterestPointController {
         return interestPointService.getInterestPointByCategoria(categoria);
     }
 
+    @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:8081"})
     @PostMapping("/interestpoints/filters/")
     public List<InterestPoint> getInterestPointByFilters(
             @RequestParam(required = false) String categoria,
