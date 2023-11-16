@@ -17,12 +17,15 @@ public class InterestPointResponseDTO {
     private Zona zona;
     private String imageReference;
 
+    private String address;
+
     public InterestPointResponseDTO (InterestPoint interestPoint, String description, String imageReference) {
         this.name= interestPoint.getName();
         this.zona= interestPoint.getZona();
         this.rating= interestPoint.getRating();
         this.description=description;
         this.imageReference=imageReference;
+        this.address=interestPoint.getAddress();
     }
 
     public InterestPointResponseDTO() {
