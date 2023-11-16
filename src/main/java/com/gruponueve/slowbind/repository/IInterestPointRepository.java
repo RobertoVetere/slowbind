@@ -25,15 +25,15 @@ public interface IInterestPointRepository extends JpaRepository<InterestPoint, I
     List<InterestPoint> findByCategoriaAndZona(Categoria categoria, Zona zona);
 
     @Query("select i from InterestPoint i where i.rating >= ?1 and i.zona = ?2")
-    List<InterestPoint> findByRatingGreaterThanEqualAndZona(Double rating, Zona zona);
+    List<InterestPoint> findByRatingGreaterThanEqualAndZona(double rating, Zona zona);
 
     @Query("select i from InterestPoint i where i.rating >= ?1 and i.categoria = ?2")
-    List<InterestPoint> findByRatingGreaterThanEqualAndCategoria(Double rating, Categoria categoria);
+    List<InterestPoint> findByRatingGreaterThanEqualAndCategoria(double rating, Categoria categoria);
 
 
 
     @Query("select i from InterestPoint i where i.rating >= ?1 and i.categoria = ?2 and i.zona = ?3")
-    List<InterestPoint> findByRatingGreaterThanEqualAndCategoriaAndZona(Double rating, Categoria categoria, Zona zona);
+    List<InterestPoint> findByRatingGreaterThanEqualAndCategoriaAndZona(double rating, Categoria categoria, Zona zona);
 
 
 

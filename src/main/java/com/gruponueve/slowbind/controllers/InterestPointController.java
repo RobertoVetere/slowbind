@@ -38,21 +38,32 @@ public class InterestPointController {
     }
 
     @PostMapping("/interestpoints/filters/")
-    public List<InterestPoint> getInterestPointByFilters(@ModelAttribute String categoria, @ModelAttribute String zona, @ModelAttribute String rating) {
-        if (!categoria.isBlank() && !zona.isBlank() && !rating.isBlank()){
-            return interestPointService.getInterestPointByCategoriaAndZonaAndRating(Categoria.valueOf(categoria), Zona.valueOf(zona), Double.valueOf(rating));
-        } else if (!categoria.isBlank() && !zona.isBlank()){
-            return interestPointService.getInterestPointByCategoriaAndZona(Categoria.valueOf(categoria), Zona.valueOf(zona));
-        } else if (!categoria.isBlank() && !rating.isBlank()){
-            return interestPointService.getInterestPointByCategoriaAndRating(Categoria.valueOf(categoria), Double.valueOf(rating));
-        } else if (!zona.isBlank() && !rating.isBlank()){
-            return interestPointService.getInterestPointByZonaAndRating(Zona.valueOf(zona), Double.valueOf(rating));
-        } else if (!categoria.isBlank()){
-            return interestPointService.getInterestPointByCategoria(Categoria.valueOf(categoria));
-        } else if (!zona.isBlank()){
+    public List<InterestPoint> getInterestPointByFilters(
+            @RequestParam(required = false) String categoria,
+            @RequestParam(required = false) String zona,
+            @RequestParam(defaultValue = "100") double rating) {
+
+
+
+        if (categoria != null && zona != null && rating != 100) {
+            return interestPointService.getInterestPointByCategoriaAndZonaAndRating(
+                    Categoria.valueOf(categoria), Zona.valueOf(zona), rating);
+        } else if (categoria != null && zona != null) {
+            return interestPointService.getInterestPointByCategoriaAndZona(
+                    Categoria.valueOf(categoria), Zona.valueOf(zona));
+        } else if (categoria != null && rating != 100) {
+            return interestPointService.getInterestPointByCategoriaAndRating(
+                    Categoria.valueOf(categoria), rating);
+        } else if (zona != null  && rating != 100) {
+            return interestPointService.getInterestPointByZonaAndRating(
+                    Zona.valueOf(zona), rating);
+        } else if (categoria != null ) {
+            return interestPointService.getInterestPointByCategoria(
+                    Categoria.valueOf(categoria));
+        } else if (zona != null ) {
             return interestPointService.getInterestPointByZona(Zona.valueOf(zona));
-        } else if (!rating.isBlank()){
-            return interestPointService.getInterestPointByRating(Double.valueOf(rating));
+        } else if (rating != 100) {
+            return interestPointService.getInterestPointByRating(rating);
         } else {
             return interestPointService.getInterestPoint();
         }
