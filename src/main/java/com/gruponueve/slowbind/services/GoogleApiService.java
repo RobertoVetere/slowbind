@@ -2,7 +2,8 @@ package com.gruponueve.slowbind.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gruponueve.slowbind.dto.InterestPointDTO;
+
+import com.gruponueve.slowbind.dtos.InterestPointResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,9 +14,10 @@ import java.util.List;
 public class GoogleApiService {
     private static final String PLACES_API_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 
-    private static final String API_KEY = "AIzaSyCEU1ntFknOSngfwaHYwT00STaUDpA_nEY";
+    //private static final String API_KEY = "AIzaSyCEU1ntFknOSngfwaHYwT00STaUDpA_nEY";
+    private static final String API_KEY = "AIzaSyBOQobXa9WCVhofKJcsFGJd-H_zdSGxHca";
 
-    public InterestPointDTO getMonumentInfo(double latitude, double longitude) throws IOException {
+    public InterestPointResponseDTO getMonumentInfo(double latitude, double longitude) throws IOException {
 
         String url = PLACES_API_URL + "?location=" + latitude + "," + longitude +
                 "&radius=500&types=monument&key=" + API_KEY;
@@ -48,10 +50,10 @@ public class GoogleApiService {
             }
         }
 
-        // Crear un objeto MonumentInfo con la descripción y las referencias de las fotos
-        InterestPointDTO interestPointDTO = new InterestPointDTO();
+
+        InterestPointResponseDTO interestPointDTO = new InterestPointResponseDTO();
         interestPointDTO.setDescription(description);
-        interestPointDTO.setPhotoReference(photoReferences);
+        interestPointDTO.setImageReference(photoReferences.toString());
 
         return interestPointDTO;
     }

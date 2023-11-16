@@ -25,4 +25,6 @@ public class InterestPointResponseDTO {
         this.imageReference=imageReference;
     }
 
+    public InterestPointResponseDTO() {
+    }
 }

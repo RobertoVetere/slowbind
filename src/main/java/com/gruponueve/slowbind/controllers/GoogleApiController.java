@@ -1,7 +1,6 @@
 package com.gruponueve.slowbind.controllers;
 
-
-import com.gruponueve.slowbind.dto.InterestPointDTO;
+import com.gruponueve.slowbind.dtos.InterestPointResponseDTO;
 import com.gruponueve.slowbind.services.GoogleApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ public class GoogleApiController {
     private GoogleApiService googleApiService;
 
     @GetMapping("/monument")
-    public InterestPointDTO getMonumentInfo(@RequestParam double latitude, @RequestParam double longitude) throws IOException {
+    public InterestPointResponseDTO getMonumentInfo(@RequestParam double latitude, @RequestParam double longitude) throws IOException {
         return googleApiService.getMonumentInfo(latitude, longitude);
     }
 
