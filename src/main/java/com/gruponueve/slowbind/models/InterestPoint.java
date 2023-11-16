@@ -16,15 +16,15 @@ public class InterestPoint {
 
     private String name;
 
-    private Categoria categoria;
+    private Categoria category;
 
     private Double rating;
 
-    private Zona zona;
+    private Zona zone;
 
-    private double longitud;
+    private double longitude;
 
-    private double latitud;
+    private double latitude;
 
     private String address;
 

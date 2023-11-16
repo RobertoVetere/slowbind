@@ -96,7 +96,7 @@ public class InterestPointService implements InterfaceInterestPointService {
         InterestPoint newInterestPoint = getInterestPointById(id);
 
         InterestPointResponseDTO InterestPointResponseDTO =
-                googleApiService.getMonumentInfo(newInterestPoint.getLatitud(), newInterestPoint.getLongitud());
+                googleApiService.getMonumentInfo(newInterestPoint.getLatitude(), newInterestPoint.getLongitude());
 
         return InterestPointResponseDTO;
     }
