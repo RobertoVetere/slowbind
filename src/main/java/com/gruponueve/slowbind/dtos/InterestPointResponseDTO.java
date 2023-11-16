@@ -23,7 +23,6 @@ public class InterestPointResponseDTO {
         this.rating= interestPoint.getRating();
         this.description=description;
         this.imageReference=imageReference;
-
     }
 
 }
