@@ -22,4 +22,8 @@ public class InterestPoint {
 
     private Zona zona;
 
+    private double longitud;
+
+    private double latitud;
+
 }

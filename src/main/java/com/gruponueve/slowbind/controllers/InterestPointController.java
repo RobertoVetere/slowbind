@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class InterestPointController {
     }
 
     @GetMapping("/interestpoints/{id}")
-    public ResponseEntity<InterestPoint> getInterestPointById(@ModelAttribute Integer id) {
+    public ResponseEntity<InterestPoint> getInterestPointById(@PathVariable Integer id) {
         if (interestPointService.getInterestPointById(id) == null) {
             return ResponseEntity.notFound().build();
         } else {
@@ -35,17 +36,22 @@ public class InterestPointController {
     }
 
     @GetMapping("/interestpoints/categoria/{categoria}")
-    public List<InterestPoint> getInterestPointByCategoria(@ModelAttribute Categoria categoria) {
+    public List<InterestPoint> getInterestPointByCategoria(@PathVariable Categoria categoria) {
         return interestPointService.getInterestPointByCategoria(categoria);
     }
 
     @GetMapping("/interestpoints/rating/{rating}")
-    public List<InterestPoint> getInterestPointByRating(@ModelAttribute Double rating) {
+    public List<InterestPoint> getInterestPointByRating(@PathVariable Double rating) {
         return interestPointService.getInterestPointByRating(rating);
     }
 
     @GetMapping("/interestpoints/zona/{zona}")
-    public List<InterestPoint> getInterestPointByZona(@ModelAttribute Zona zona) {
+    public List<InterestPoint> getInterestPointByZona(@PathVariable Zona zona) {
         return interestPointService.getInterestPointByZona(zona);
+    }
+
+    @GetMapping("/interestpoints/name/{name}")
+    public List<InterestPoint> getInterestPointByName(@PathVariable String name) {
+        return interestPointService.getInterestPointByName(name);
     }
 }
