@@ -26,4 +26,6 @@ public class InterestPoint {
 
     private double latitud;
 
+    private String address;
+
 }

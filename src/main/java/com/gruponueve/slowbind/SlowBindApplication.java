@@ -26,7 +26,7 @@ public class SlowBindApplication {
 		return args -> {
 			ObjectMapper mapper = new ObjectMapper();
 			TypeReference<List<InterestPoint>> typeReference=new TypeReference<List<InterestPoint>>(){};
-			InputStream inputStream = TypeReference.class.getResourceAsStream("/json/skins.json");
+			InputStream inputStream = TypeReference.class.getResourceAsStream("");
 			try {
 				List<InterestPoint> interestPoints = mapper.readValue(inputStream,typeReference);
 				InterestPointService.saveInterestPoint(interestPoints);

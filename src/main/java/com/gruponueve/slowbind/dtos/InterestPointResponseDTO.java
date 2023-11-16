@@ -16,6 +16,7 @@ public class InterestPointResponseDTO {
     private Double rating;
     private Zona zona;
     private String imageReference;
+    private String address;
 
     public InterestPointResponseDTO (InterestPoint interestPoint, String description, String imageReference) {
         this.name= interestPoint.getName();
@@ -23,6 +24,7 @@ public class InterestPointResponseDTO {
         this.rating= interestPoint.getRating();
         this.description=description;
         this.imageReference=imageReference;
+        this.address=interestPoint.getAddress();
     }
 
     public InterestPointResponseDTO() {
