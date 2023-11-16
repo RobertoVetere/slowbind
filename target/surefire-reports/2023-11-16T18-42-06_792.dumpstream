@@ -1,0 +1,5 @@
+# Created at 2023-11-16T18:42:07.001
+Boot Manifest-JAR contains absolute paths in classpath 'X:\Proyectos Microservicios\slowbind\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

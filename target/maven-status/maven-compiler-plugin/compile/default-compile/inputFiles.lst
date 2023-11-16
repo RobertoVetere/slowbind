@@ -1,8 +1,11 @@
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\repository\IInterestPointRepository.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\services\InterfaceInterestPointService.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\SlowBindApplication.java
+X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\dtos\InterestPointResponseDTO.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\enums\Categoria.java
+X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\services\GoogleApiService.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\models\InterestPoint.java
+X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\controllers\GoogleApiController.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\controllers\InterestPointController.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\enums\Zona.java
 X:\Proyectos Microservicios\slowbind\src\main\java\com\gruponueve\slowbind\services\InterestPointService.java
