@@ -28,4 +28,12 @@ public interface InterfaceInterestPointService {
 
     List<InterestPoint> getInterestPointByName(String name);
 
+    List<InterestPoint> getInterestPointByCategoriaAndZona(Categoria categoria, Zona zona);
+
+    List<InterestPoint> getInterestPointByCategoriaAndRating(Categoria categoria, Double rating);
+
+    List<InterestPoint> getInterestPointByZonaAndRating(Zona zona, Double rating);
+
+    List<InterestPoint> getInterestPointByCategoriaAndZonaAndRating(Categoria categoria, Zona zona, Double rating);
+
 }
