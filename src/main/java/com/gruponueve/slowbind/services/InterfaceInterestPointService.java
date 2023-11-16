@@ -6,7 +6,7 @@ import com.gruponueve.slowbind.models.InterestPoint;
 
 import java.util.List;
 
-public interface IInterestPointService {
+public interface InterfaceInterestPointService {
 
     List<InterestPoint> getInterestPoint();
 
@@ -22,7 +22,7 @@ public interface IInterestPointService {
 
     List<InterestPoint> getInterestPointByCategoria(Categoria categoria);
 
-    List<InterestPoint> getInterestPointByIndex(Double index);
+    List<InterestPoint> getInterestPointByRating(Double rating);
 
     List<InterestPoint> getInterestPointByZona(Zona zona);
 

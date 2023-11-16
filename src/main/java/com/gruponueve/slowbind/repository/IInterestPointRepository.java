@@ -18,8 +18,8 @@ public interface IInterestPointRepository extends JpaRepository<InterestPoint, I
     @Query("select i from InterestPoint i where i.categoria = ?1")
     List<InterestPoint> findByCategoria(Categoria categoria);
 
-    @Query("select i from InterestPoint i where i.index >= ?1")
-    List<InterestPoint> findByIndexGreaterThanEqual(double index);
+    @Query("select i from InterestPoint i where i.rating >= ?1")
+    List<InterestPoint> findByRatingGreaterThanEqual(double rating);
 
     @Query("select i from InterestPoint i where i.zona = ?1")
     List<InterestPoint> findByZona(Zona zona);

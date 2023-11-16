@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InterestPointService implements IInterestPointService {
+public class InterestPointService implements InterfaceInterestPointService {
 
     @Autowired
     private IInterestPointRepository interestPointRepository;
@@ -50,10 +50,12 @@ public class InterestPointService implements IInterestPointService {
         return interestPointRepository.findByCategoria(categoria);
     }
 
+
     @Override
-    public List<InterestPoint> getInterestPointByIndex(Double index) {
-        return interestPointRepository.findByIndexGreaterThanEqual(index);
+    public List<InterestPoint> getInterestPointByRating(Double rating) {
+        return interestPointRepository.findByRatingGreaterThanEqual(rating);
     }
+
 
     @Override
     public List<InterestPoint> getInterestPointByZona(Zona zona) {

@@ -39,9 +39,9 @@ public class InterestPointController {
         return interestPointService.getInterestPointByCategoria(categoria);
     }
 
-    @GetMapping("/interestpoints/index/{index}")
-    public List<InterestPoint> getInterestPointByIndex(@ModelAttribute Double index) {
-        return interestPointService.getInterestPointByIndex(index);
+    @GetMapping("/interestpoints/rating/{rating}")
+    public List<InterestPoint> getInterestPointByRating(@ModelAttribute Double rating) {
+        return interestPointService.getInterestPointByRating(rating);
     }
 
     @GetMapping("/interestpoints/zona/{zona}")

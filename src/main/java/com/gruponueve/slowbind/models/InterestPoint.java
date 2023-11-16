@@ -18,7 +18,7 @@ public class InterestPoint {
 
     private Categoria categoria;
 
-    private Double index;
+    private Double rating;
 
     private Zona zona;
 
