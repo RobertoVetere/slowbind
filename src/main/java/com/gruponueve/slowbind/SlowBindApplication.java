@@ -29,9 +29,13 @@ public class SlowBindApplication {
 			TypeReference<List<InterestPoint>> typeReference= new TypeReference<>() {
 			};
 			InputStream inputStream = TypeReference.class.getResourceAsStream("/rating.json");
+			InputStream inputStream2 = TypeReference.class.getResourceAsStream("/rating.json");
 			try {
 				List<InterestPoint> interestPoints = mapper.readValue(inputStream,typeReference);
+				List<InterestPoint> interestPoints2 = mapper.readValue(inputStream2,typeReference);
+
 				interestPointService.saveInterestPoints(interestPoints);
+				interestPointService.saveInterestPoints(interestPoints2);
 				System.out.println("Interest points saved");
 			} catch (IOException e){
 				System.out.println("Unable to save interest points: " + e.getMessage());
