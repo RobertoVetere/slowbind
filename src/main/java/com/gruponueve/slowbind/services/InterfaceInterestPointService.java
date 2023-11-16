@@ -26,5 +26,6 @@ public interface InterfaceInterestPointService {
 
     List<InterestPoint> getInterestPointByZona(Zona zona);
 
+    List<InterestPoint> getInterestPointByName(String name);
 
 }
