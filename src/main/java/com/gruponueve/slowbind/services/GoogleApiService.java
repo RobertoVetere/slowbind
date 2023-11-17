@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.gruponueve.slowbind.dtos.InterestPointResponseDTO;
+import io.swagger.v3.core.util.Json;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,8 +48,19 @@ public class GoogleApiService {
             for (JsonNode photo : photos) {
                 String photoReference = photo.path("photo_reference").asText();
                 photoReferences.add(photoReference);
+
+                String urlPhoto = "https://maps.googleapis.com/maps/api/place/photo?photo_reference=" + photoReference + "&maxheight=1600&key=" + API_KEY;
+                String detailsPhoto = restTemplate.getForObject(urlPhoto, String.class);
+
+                JsonNode detailsRootPhoto = mapper.readTree(detailsPhoto);
+                JsonNode detailsResultPhoto = detailsRootPhoto.path("result");
+                List<String> results = new ArrayList<String>();
+                if (detailsResult.has("photos")){
+                    System.out.println("photos: " + detailsResultPhoto);
+                }
             }
         }
+
 
 
         InterestPointResponseDTO interestPointDTO = new InterestPointResponseDTO();
